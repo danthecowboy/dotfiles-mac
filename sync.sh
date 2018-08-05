@@ -13,8 +13,8 @@ function doIt() {
     mkdir ~/.logs
     chmod 700 ~/.logs
   fi
-  if [ ! -d ~/.vim/bundle/vundle ]; then
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  if [ ! -d ~/.vim/pack/minpac/opt/minpac ]; then
+    git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
   fi
 
   # solarized
@@ -39,20 +39,20 @@ function doIt() {
   fi
 
   if which vim >/dev/null 2>&1; then
-    vim +BundleInstall +qall
+    vim +PackUpdate
   fi
 
   # Visual Studio Code
-  if [ -f ./Library/Application\ Support/Code/User/extensions.txt ]; then
-    extensions=$(cat ./Library/Application\ Support/Code/User/extensions.txt)
-    if [ ! -d /mnt/c ]; then
-      if which code >/dev/null 2>&1; then
-        for ext in $extensions; do
-          code --install-extension "$ext"
-        done
-      fi
-    fi
-  fi
+#  if [ -f ./Library/Application\ Support/Code/User/extensions.txt ]; then
+#    extensions=$(cat ./Library/Application\ Support/Code/User/extensions.txt)
+#    if [ ! -d /mnt/c ]; then
+#      if which code >/dev/null 2>&1; then
+#        for ext in $extensions; do
+#          code --install-extension "$ext"
+#        done
+#      fi
+#    fi
+#  fi
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

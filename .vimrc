@@ -1,5 +1,18 @@
 " Make vim more useful
 set nocompatible
+filetype plugin indent on
+
+packadd minpac
+call minpac#init()
+
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('jelera/vim-javascript-syntax')
+call minpac#add('PProvost/vim-ps1')
+call minpac#add('scrooloose/syntastic')
+call minpac#add('editorconfig/editorconfig-vim')
+
+command! PackUpdate call minpac#update()
 
 " Set syntax highlighting options.
 set t_Co=256
@@ -236,29 +249,6 @@ let g:vimclojure#ParenRainbow = 1 " Enable rainbow parens
 let g:vimclojure#DynamicHighlighting = 1 " Dynamic highlighting
 let g:vimclojure#FuzzyIndent = 1 " Names beginning in 'def' or 'with' to be indented as if they were included in the 'lispwords' option
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-" Bundle 'scrooloose/nerdtree'
-" Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'jelera/vim-javascript-syntax'
-if filereadable("~/.vim/bundle/YouCompleteMe/install.sh")
-  Bundle 'Valloric/YouCompleteMe'
-endif
-Bundle 'PProvost/vim-ps1'
-Bundle 'scrooloose/syntastic'
-Bundle 'editorconfig/editorconfig-vim'
-
-" required after Bundle
-" Emulate bundles, allow plugins to live independantly. Easier to manage.
-" call pathogen#runtime_append_all_bundles()
-" execute pathogen#infect()
-filetype plugin indent on
 
 let g:nerdtree_tabs_open_on_gui_startup = 0
 " autocmd vimenter * if !argc() | NERDTree | endif
