@@ -244,7 +244,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " Bundle 'scrooloose/nerdtree'
 " Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'jelera/vim-javascript-syntax'
 if filereadable("~/.vim/bundle/YouCompleteMe/install.sh")
@@ -268,16 +267,6 @@ map <C-S-Tab> :tabp<CR>
 silent! call togglebg#map("<F5>")
 
 set background=light
-" directly on mac
-if has('mac') && $HOSTNAME == "Stefans-MacBook-Pro.local"
-  let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
-  silent! colorscheme solarized
-else
-  let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
-  silent! colorscheme solarized
-endif
 
 " Perl hacks
 function! Preserve(command)

@@ -52,23 +52,25 @@ function install_brew_packages() {
     | xargs brew cask install
 }
 
-function install_solarized_profiles() {
+function install_themes() {
   mkdir -p ~/code
   cd ~/code
-  if [ ! -d ~/code/osx-terminal.app-colors-solarized ]; then
-    echo "Cloning osx-terminal.app-colors-solarized repo"
-    git clone https://github.com/tomislav/osx-terminal.app-colors-solarized
-    cd osx-terminal.app-colors-solarized
-    open Solarized\ Dark.terminal
-    open Solarized\ Light.terminal
+  if [ ! -d ~/code/atom-one-dark-terminal ]; then
+    echo "Cloning atom-one-dark-terminal repo"
+    git clone https://github.com/nathanbuchar/atom-one-dark-terminal
+    cd atom-one-dark-terminal/scheme/terminal
+    open "One Dark.terminal"
+    open "One Light.terminal"
+    defaults write com.apple.Terminal "Default Window Settings" "One Dark"
+    defaults write com.apple.Terminal "Startup Window Settings" "One Dark"
   fi
 }
 
 # Main
 
-check_macos_updated
-install_brew
-install_dotfiles
-install_solarized_profiles
-install_brew_packages
+#check_macos_updated
+#install_brew
+#install_dotfiles
+install_themes
+#install_brew_packages
 
