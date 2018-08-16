@@ -1,12 +1,9 @@
-1password
-atom
 disk-inventory-x
 docker
 dropbox
 google-chrome
 kap
 microsoft-office
-sizeup
 skitch
 slack
 tunnelblick
